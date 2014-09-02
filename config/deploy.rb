@@ -2,13 +2,13 @@
 lock '3.2.1'
 
 set :application, 'deploy_app'
-set :repo_url, 'git@example.com:me/my_repo.git'
+set :repo_url, 'git@github.com:hamichamp/deploy_app.git'
 
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
 
 # Default deploy_to directory is /var/www/my_app
-set :deploy_to, "/home/rails/${fetch(:application)}"
+set :deploy_to, "/home/rails/deploy_app"
 
 # Default value for :scm is :git
 # set :scm, :git
@@ -35,6 +35,7 @@ set :deploy_to, "/home/rails/${fetch(:application)}"
 # set :keep_releases, 5
 
 set :rbenv_ruby, "2.1.2"
+set :rbenv_type, :user
 
 namespace :deploy do
 

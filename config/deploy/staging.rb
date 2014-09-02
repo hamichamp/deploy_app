@@ -28,7 +28,7 @@ server 'localhost', user: 'rails', roles: %w{web app}, my_property: :my_value
  set :ssh_options, {
    keys: %w(/Users/koizumi/vagrant/alice/id_rsa),
    port: 2222,
-   forward_agent: false,
+   forward_agent: true,
    auth_methods: %w(publickey)
  }
 #
@@ -40,7 +40,7 @@ server 'localhost',
   ssh_options: {
     user: 'rails', # overrides user setting above
     keys: %w(/Users/koizumi/vagrant/alice/id_rsa),
-    forward_agent: false,
+    forward_agent: true,
     auth_methods: %w(publickey)
     # password: 'please use keys'
   }
