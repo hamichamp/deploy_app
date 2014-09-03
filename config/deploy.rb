@@ -23,7 +23,7 @@ set :deploy_to, "/home/rails/deploy_app"
 set :pty, true
 
 # Default value for :linked_files is []
-set :linked_files, %w{config/database.yml}
+set :linked_files, %w{config/database.yml .env}
 
 # Default value for linked_dirs is []
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
@@ -56,6 +56,7 @@ namespace :deploy do
         execute "mkdir -p #{shared_path}/config"
       end
       upload!('config/database.yml', "#{shared_path}/config/database.yml")
+      upload!('.env', "#{shared_path}/.env")
     end
   end
 
