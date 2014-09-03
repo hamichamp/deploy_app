@@ -20,7 +20,7 @@ set :deploy_to, "/home/rails/deploy_app"
 # set :log_level, :debug
 
 # Default value for :pty is false
-# set :pty, true
+set :pty, true
 
 # Default value for :linked_files is []
 set :linked_files, %w{config/database.yml}
@@ -36,6 +36,8 @@ set :keep_releases, 5
 
 set :rbenv_ruby, "2.1.2"
 set :rbenv_type, :user
+
+# set :pg_user, "rails"
 
 namespace :deploy do
 
