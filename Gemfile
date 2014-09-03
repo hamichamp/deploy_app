@@ -45,3 +45,5 @@ gem 'capistrano-rbenv'
 gem 'capistrano3-unicorn'
 
 gem 'therubyracer'
+
+gem 'dotenv-rails'
