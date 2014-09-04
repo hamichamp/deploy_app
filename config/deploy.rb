@@ -71,7 +71,7 @@ namespace :deploy do
     end
   end
 
-  before :starting, :upload
+  before :check, :upload
 
   after :publishing, :restart
   namespace :deploy do
