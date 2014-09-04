@@ -74,6 +74,11 @@ namespace :deploy do
   before :starting, :upload
 
   after :publishing, :restart
+  namespace :deploy do
+    task :restart do
+      invoke 'unicorn:restart'
+    end
+  end
 
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
