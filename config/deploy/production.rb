@@ -4,6 +4,20 @@
 # is considered to be the first unless any hosts have the primary
 # property set.  Don't declare `role :all`, it's a meta role.
 
+set :stage, :production
+set :branch, "talking_quickly"
+
+set :full_app_name, "#{fetch(:application)}"
+set :server_name, "www.example.com example.com"
+
+set :deploy_to, "/home/#{fetch(:deploy_user)}/#{fetch(:full_app_name)}"
+
+set :rails_env, :production
+
+set :unicorn_worker_count, 5
+
+set :enable_ssl, false
+
 role :app, %w{rails@localhost}
 role :web, %w{rails@localhost}
 role :db,  %w{rails@localhost}
@@ -15,7 +29,7 @@ role :db,  %w{rails@localhost}
 # server list. The second argument is a, or duck-types, Hash and is
 # used to set extended properties on the server.
 
-server 'localhost', user: 'rails', roles: %w{web app}, my_property: :my_value
+server 'localhost', user: 'rails', roles: %w{web app, db}, primary: true
 
 
 # Custom SSH Options
